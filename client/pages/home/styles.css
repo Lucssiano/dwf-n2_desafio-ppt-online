@@ -1,0 +1,20 @@
+.home-container {
+	font-family: var(--game-font);
+	max-width: 300px;
+	margin: 0 auto;
+	height: 100vh;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+/* .main-section {
+} */
+.title {
+	color: #009048;
+	font-weight: 700;
+	font-size: 80px;
+}
+.hands-container {
+	display: flex;
+	justify-content: space-between;
+}

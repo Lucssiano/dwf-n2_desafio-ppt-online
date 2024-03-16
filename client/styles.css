@@ -1,0 +1,14 @@
+:root {
+	--game-font: 'Odibee Sans', sans-serif;
+}
+
+* {
+	box-sizing: border-box;
+}
+
+body {
+	margin: 0;
+	font-family: var(--game-font);
+	background-image: url('./img/background.png');
+	overflow: hidden;
+}

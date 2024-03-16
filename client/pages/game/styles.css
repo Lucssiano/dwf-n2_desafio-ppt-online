@@ -1,0 +1,93 @@
+.game-container {
+	font-family: var(--game-font);
+	max-width: 300px;
+	margin: 0 auto;
+	height: 100vh;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+/* MIDDLE GAME BLOCK */
+.middle-game-section {
+	display: flex;
+	align-items: center;
+	gap: 15px;
+}
+@keyframes spin {
+	0% {
+		transform: rotate(0deg);
+	}
+	100% {
+		transform: rotate(360deg);
+	}
+}
+.timer-container {
+	position: relative;
+	margin: auto;
+}
+.timer-container.inactive {
+	opacity: 0;
+}
+.loader {
+	width: 180px;
+	height: 180px;
+	border-radius: 50%;
+	border: 12px solid #f1f1f1;
+	border-top: 12px solid #000;
+	animation: spin 1s linear infinite;
+}
+.timer__counter {
+	position: absolute;
+	top: 30%;
+	left: 40%;
+	font-size: 80px;
+	font-weight: 700;
+}
+
+/* HANDS BLOCK */
+.hands-game-container {
+	display: flex;
+	justify-content: space-between;
+	height: 160px;
+}
+.hands-game-container.rotate {
+	transform: rotate(180deg);
+	pointer-events: none;
+}
+.computer-hand {
+	opacity: 0.5;
+}
+.user-hand,
+.computer-hand {
+	transition: transform 0.5s;
+}
+.user-hand.active {
+	pointer-events: none;
+}
+.computer-hand.active {
+	opacity: 1;
+}
+.user-hand.active.paper {
+	transform: translateY(-50%);
+}
+.computer-hand.active.paper {
+	transform: translate(5px, -100%);
+}
+.user-hand.active.scissors {
+	transform: translate(-120px, -55%);
+}
+.computer-hand.active.scissors {
+	transform: translate(-105px, -110%);
+}
+.user-hand.active.rock {
+	transform: translate(95px, -55%);
+}
+.computer-hand.active.rock {
+	transform: translate(110px, -125%);
+}
+.user-hand.inactive {
+	opacity: 0.5;
+	transform: translateY(50%);
+	pointer-events: none;
+}

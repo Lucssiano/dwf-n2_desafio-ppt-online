@@ -1,0 +1,30 @@
+{
+  "name": "dwf-n2-desafio_ppt-online",
+  "version": "1.0.0",
+  "source": "./src/index.html",
+  "scripts": {
+    "dev:front": "parcel",
+    "dev:api": "nodemon --watch ./server/index.ts --exec ts-node ./server/dev.ts",
+    "dev": "npm run dev:front & npm run dev:api",
+    "build:front": "parcel build --dist-dir build",
+    "build:api": "tsc",
+    "build": "npm run build:front && npm run build:api",
+    "start": "node index.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@vaadin/router": "^1.7.5",
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.5",
+    "express": "^4.18.3",
+    "firebase": "^10.9.0",
+    "firebase-admin": "^12.0.0",
+    "nodemon": "^3.1.0",
+    "typescript": "^5.4.2"
+  },
+  "devDependencies": {
+    "@types/cors": "^2.8.17",
+    "@types/node": "^20.11.28"
+  }
+}

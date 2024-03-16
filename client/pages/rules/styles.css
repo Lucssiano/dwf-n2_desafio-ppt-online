@@ -1,0 +1,18 @@
+.rules-container {
+	font-family: var(--game-font);
+	margin: 0 auto;
+	max-width: 300px;
+	height: 100vh;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+.paragraph {
+	font-size: 40px;
+	font-weight: 600;
+	margin: 20px 0;
+}
+.hands-container {
+	display: flex;
+	justify-content: space-between;
+}
