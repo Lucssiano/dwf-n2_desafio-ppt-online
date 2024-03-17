@@ -24,12 +24,12 @@ class PlayersScoreboard extends HTMLElement {
 		this.shadow.innerHTML = `
 		<div class="players-scoreboard">
 			<div class="middle-game-section__counter">
-				<h4 class="counter-title">Computadora</h4>
+				<h4 class="counter-title">Marce</h4>
 				<p class="counter-number computer">${this.computerCounter}</p>
 			</div>
-			<div class="middle-game-section__counter">
-				<h4 class="counter-title">Usuario</h4>
-				<p class="counter-number user">${this.userCounter}</p>
+			<div class="middle-game-section__counter ">
+				<h4 class="counter-title opponent">Lucho</h4>
+				<p class="counter-number user opponent">${this.userCounter}</p>
 			</div>
 		</div>
 				`;
@@ -53,6 +53,9 @@ class PlayersScoreboard extends HTMLElement {
 				font-size: 20px;
 				color: #070f2b;
 				font-weight: 700;
+			}
+			.opponent{
+			  color: #FF6442;
 			}
     `;
 

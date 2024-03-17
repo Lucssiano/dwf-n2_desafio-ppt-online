@@ -22,11 +22,10 @@ export const state = {
 		},
 	},
 	listeners: [],
-	/* Ver llamadas de mas al state !!!!*/
-	init() {
-		const savedState = localStorage.getItem('state');
-		if (savedState) this.setState(JSON.parse(savedState));
-	},
+	// init() {
+	// const savedState = localStorage.getItem('state');
+	// if (savedState) this.setState(JSON.parse(savedState));
+	// },
 	/* Metodo para sacar reiniciar el tablero cuando es necesario*/
 	resetScoreboard() {
 		localStorage.removeItem('state');
