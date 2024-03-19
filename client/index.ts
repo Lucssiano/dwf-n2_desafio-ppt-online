@@ -8,6 +8,7 @@ import '../server/router';
 import './pages/home';
 import './pages/new-game';
 import './pages/join-room';
+import './pages/share-code';
 import './pages/fail';
 import './pages/rules';
 import './pages/lobby';

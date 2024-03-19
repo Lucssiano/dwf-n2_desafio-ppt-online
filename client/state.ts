@@ -7,19 +7,24 @@ type Player = 'user' | 'computer';
 
 export const state = {
 	data: {
-		currentGame: {
-			computer: '',
-			user: '',
+		currentRoom: {
+			ownerName: '' /* O ownerID y de ahi saco el nombre */,
+			opponentName: '',
+			roomId: '',
 		},
-		currentGameCounter: {
-			computer: 0,
-			user: 0,
-			winner: '',
-		},
-		gameWins: {
-			computer: 0,
-			user: 0,
-		},
+		// currentGame: {
+		// 	computer: '',
+		// 	user: '',
+		// },
+		// currentGameCounter: {
+		// 	computer: 0,
+		// 	user: 0,
+		// 	winner: '',
+		// },
+		// gameWins: {
+		// 	computer: 0,
+		// 	user: 0,
+		// },
 	},
 	listeners: [],
 	// init() {
@@ -27,13 +32,6 @@ export const state = {
 	// if (savedState) this.setState(JSON.parse(savedState));
 	// },
 	/* Metodo para sacar reiniciar el tablero cuando es necesario*/
-	resetScoreboard() {
-		localStorage.removeItem('state');
-		const currentState = this.getState();
-		currentState.gameWins.computer = 0;
-		currentState.gameWins.user = 0;
-		this.setState(currentState);
-	},
 	subscribe(callback: (any) => any) {
 		this.listeners.push(callback);
 	},
@@ -49,6 +47,13 @@ export const state = {
 	setPlay(hand: Hand, player: Player) {
 		const currentState = this.getState();
 		currentState.currentGame[player] = hand;
+		this.setState(currentState);
+	},
+	resetScoreboard() {
+		localStorage.removeItem('state');
+		const currentState = this.getState();
+		currentState.gameWins.computer = 0;
+		currentState.gameWins.user = 0;
 		this.setState(currentState);
 	},
 	addWin(player: Player) {

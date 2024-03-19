@@ -19,7 +19,7 @@ class NewGamePage extends HTMLElement {
           <h1 class="title">Piedra Papel ó Tijera</h1>
           <form class="form-container">
             <label for="name" class="name-label">Tu Nombre</label>
-            <input class="name-input" id="name"></input>
+            <input class="name-input" id="name" required></input>
             <custom-button class="start-button" size="small">Empezar</custom-button>
           </form>
         </main>
@@ -31,9 +31,21 @@ class NewGamePage extends HTMLElement {
       </div>
   `;
 
+		const formEl = this.shadow.querySelector('form');
+		const inputNameEl = this.shadow.querySelector('.name-input') as HTMLInputElement;
 		const startGameButton = this.shadow.querySelector('.start-button');
 
-		startGameButton?.addEventListener('click', () => Router.go('/lobby'));
+		formEl?.addEventListener('submit', (e) => {
+			e.preventDefault();
+			const name = inputNameEl?.value;
+			if (!name) alert('Por favor ingresá tu nombre');
+			else {
+				/* Guardar currentRoom.ownerName en state */
+				Router.go('/share-code');
+			}
+		});
+
+		startGameButton?.addEventListener('click', () => formEl?.dispatchEvent(new Event('submit')));
 
 		const style = document.createElement('style');
 		style.innerHTML = `

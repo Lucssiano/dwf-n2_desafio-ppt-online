@@ -1,7 +1,6 @@
 import { state } from '../../state';
-import { Router } from '@vaadin/router';
 
-class RulesPage extends HTMLElement {
+class ShareCodePage extends HTMLElement {
 	shadow: ShadowRoot;
 
 	constructor() {
@@ -15,21 +14,17 @@ class RulesPage extends HTMLElement {
 
 	render() {
 		this.shadow.innerHTML = `
-        <div class="rules-container">
+        <div class="content-container">
             <div class="scoreboard-container">
                 <div class="players-container">
                     <p class="player">Marce: <span class="wins">0</span></p>
                     <p class="player opponent">Lucho: <span class="wins">0</span></p>
                 </div>
-                <p class="room-info">Sala: <span class="room-id">76HH23</span></p>
+                <p class="room-info">Sala <span class="room-id">76HH23</span></p>
             </div>
-            <div class="content">
                 <p class="paragraph">
-                    Presioná jugar y elegí: piedra, papel o tijera antes de que pasen los 3 segundos.
+                    Compartí el código: <span class="room-code-copy">76HH23</span> con tu contrincante
                 </p>
-                <custom-button size="small" class="play-button">¡Jugar!</custom-button>
-                <custom-button size="small" color="red" class="restart-button">Reiniciar estadisticas</custom-button>
-            </div>
             <div class="hands-container">
                 <custom-hand type="rock"></custom-hand>
                 <custom-hand type="paper"></custom-hand>
@@ -38,19 +33,11 @@ class RulesPage extends HTMLElement {
         </div>
     `;
 
-		const restartButtonEl = this.shadow.querySelector('.restart-button');
-		restartButtonEl?.addEventListener('click', () => {
-			// state.resetScoreboard();
-		});
-
-		const playButtonEl = this.shadow.querySelector('.play-button');
-		playButtonEl?.addEventListener('click', () => Router.go('/lobby'));
-
 		/* <p class="paragraph"> El primer jugador en ganar 3 rondas es el ganador del juego. </p> */
 
 		const style = document.createElement('style');
 		style.innerHTML = `
-            .rules-container {
+            .content-container {
                 font-family: var(--game-font);
                 margin: 0 auto;
                 max-width: 300px;
@@ -61,8 +48,8 @@ class RulesPage extends HTMLElement {
             }
             .paragraph {
                 font-size: 40px;
-                font-weight: 600;
                 margin: 20px 0;
+                text-align: center;
             }
             .scoreboard-container {
                 margin: 20px 0;
@@ -91,6 +78,12 @@ class RulesPage extends HTMLElement {
                 display: block;
                 font-weight: 400;
             }
+            .room-code-copy {
+                display: block;
+                font-weight: 700;
+                color: #009048;
+                margin: 10px 0 5px 0;
+            }
             .hands-container {
                 display: flex;
                 justify-content: space-between;
@@ -101,4 +94,4 @@ class RulesPage extends HTMLElement {
 	}
 }
 
-customElements.define('rules-page', RulesPage);
+customElements.define('share-code-page', ShareCodePage);

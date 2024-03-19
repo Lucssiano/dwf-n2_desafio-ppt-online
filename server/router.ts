@@ -8,6 +8,7 @@ import { Router } from '@vaadin/router';
 		{ path: '/home', component: 'home-page' },
 		{ path: '/new-game', component: 'new-game-page' },
 		{ path: '/join-room', component: 'join-room-page' },
+		{ path: '/share-code', component: 'share-code-page' },
 		{ path: '/fail', component: 'fail-page' },
 		{ path: '/rules', component: 'rules-page' },
 		{ path: '/lobby', component: 'lobby-page' },

@@ -18,7 +18,7 @@ class JoinRoomPage extends HTMLElement {
         <main class="main-section">
           <h1 class="title">Piedra Papel ó Tijera</h1>
           <form class="form-container">
-            <input class="code-input" id="name" placeholder="código"></input>
+            <input class="code-input" placeholder="código" required></input>
             <custom-button class="start-button" size="small">Ingresar a la sala</custom-button>
           </form>
         </main>
@@ -30,9 +30,21 @@ class JoinRoomPage extends HTMLElement {
       </div>
   `;
 
+		const formEl = this.shadow.querySelector('form');
+		const inputNameEl = this.shadow.querySelector('.code-input') as HTMLInputElement;
 		const startGameButton = this.shadow.querySelector('.start-button');
 
-		startGameButton?.addEventListener('click', () => Router.go('/rules'));
+		formEl?.addEventListener('submit', (e) => {
+			e.preventDefault();
+			const name = inputNameEl?.value;
+			if (!name) alert('Por favor ingresá un codigo');
+			else {
+				/* Guardar currentRoom.roomId en state */
+				Router.go('/rules');
+			}
+		});
+
+		startGameButton?.addEventListener('click', () => formEl?.dispatchEvent(new Event('submit')));
 
 		const style = document.createElement('style');
 		style.innerHTML = `
