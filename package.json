@@ -7,9 +7,9 @@
     "dev:api": "nodemon --watch ./server/index.ts --exec ts-node ./server/dev.ts",
     "dev": "npm run dev:front & npm run dev:api",
     "build:front": "parcel build",
-    "build:api": "tsc",
+    "build:api": "tsc ./server/index.ts",
     "build": "npm run build:front && npm run build:api",
-    "start": "node index.js"
+    "start": "node ./server/index.js"
   },
   "author": "",
   "license": "ISC",

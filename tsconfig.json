@@ -8,5 +8,5 @@
 		"esModuleInterop": true
 	},
 	"files": ["./server/index.ts"],
-	"include": ["src/**/*", "server/**/*"]
+	"include": ["client/**/*", "server/**/*"]
 }
