@@ -1,14 +1,17 @@
 type Hand = 'rock' | 'paper' | 'scissors';
 type Player = 'user' | 'computer';
+
 // type Game = {
 // 	computer: Hand;
 // 	user: Hand;
 // };
 
+const API_BASE_URL = process.env.API_BASE_URL;
+
 export const state = {
 	data: {
 		currentRoom: {
-			ownerName: '' /* O ownerID y de ahi saco el nombre */,
+			ownerName: '',
 			opponentName: '',
 			roomId: '',
 		},
@@ -31,7 +34,21 @@ export const state = {
 	// const savedState = localStorage.getItem('state');
 	// if (savedState) this.setState(JSON.parse(savedState));
 	// },
-	/* Metodo para sacar reiniciar el tablero cuando es necesario*/
+	createRoom(userName: string) {
+		this.setRoomOwnerName(userName);
+		fetch(`${API_BASE_URL}/rooms`, {
+			method: 'POST',
+			headers: {
+				'Content-Type': 'application/json',
+			},
+			body: JSON.stringify({ ownerName: userName }),
+		}).then((res) => res.json());
+	},
+	setRoomOwnerName(ownerName: string) {
+		const currentState = this.getState();
+		currentState.currentRoom.ownerName = ownerName;
+		this.setState(currentState);
+	},
 	subscribe(callback: (any) => any) {
 		this.listeners.push(callback);
 	},
@@ -49,6 +66,7 @@ export const state = {
 		currentState.currentGame[player] = hand;
 		this.setState(currentState);
 	},
+	/* Metodo para sacar reiniciar el tablero cuando es necesario*/
 	resetScoreboard() {
 		localStorage.removeItem('state');
 		const currentState = this.getState();

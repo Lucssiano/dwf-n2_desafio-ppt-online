@@ -1,4 +1,5 @@
 import { Router } from '@vaadin/router';
+import { state } from '../../state';
 
 class NewGamePage extends HTMLElement {
 	shadow: ShadowRoot;
@@ -37,10 +38,11 @@ class NewGamePage extends HTMLElement {
 
 		formEl?.addEventListener('submit', (e) => {
 			e.preventDefault();
-			const name = inputNameEl?.value;
-			if (!name) alert('Por favor ingresá tu nombre');
+			const userName = inputNameEl?.value;
+			if (!userName) alert('Por favor ingresá tu nombre');
 			else {
 				/* Guardar currentRoom.ownerName en state */
+				state.createRoom(userName);
 				Router.go('/share-code');
 			}
 		});
