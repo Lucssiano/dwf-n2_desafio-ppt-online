@@ -7,6 +7,6 @@
 		"strictNullChecks": false,
 		"esModuleInterop": true
 	},
-	"files": ["./server/index.ts"],
+	"files": ["./server/dev.ts"],
 	"include": ["client/**/*", "server/**/*"]
 }

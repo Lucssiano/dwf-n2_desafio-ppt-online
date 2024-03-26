@@ -1,11 +1,10 @@
 {
   "name": "dwf-n2-desafio_ppt-online",
   "version": "1.0.0",
-  "source": "./client/index.html",
+  "source": "client/index.html",
   "scripts": {
     "dev:front": "parcel",
     "dev:api": "nodemon --watch ./server/index.ts --exec ts-node ./server/dev.ts",
-    "dev": "npm run dev:front & npm run dev:api",
     "build:front": "parcel build",
     "build:api": "tsc ./server/index.ts",
     "build": "npm run build:front && npm run build:api",
@@ -23,7 +22,9 @@
     "nanoid": "^5.0.6",
     "nodemon": "^3.1.0",
     "parcel": "^2.12.0",
-    "typescript": "^5.4.2"
+    "ts-node": "^10.9.2",
+    "typescript": "^5.4.2",
+    "uuid": "^9.0.1"
   },
   "devDependencies": {
     "@types/cors": "^2.8.17",

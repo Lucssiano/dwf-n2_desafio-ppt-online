@@ -43,6 +43,7 @@ class NewGamePage extends HTMLElement {
 			else {
 				/* Guardar currentRoom.ownerName en state */
 				state.createRoom(userName);
+        /* Guardar room id en el state */
 				Router.go('/share-code');
 			}
 		});
